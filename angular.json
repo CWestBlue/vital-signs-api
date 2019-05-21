@@ -1,0 +1,79 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "",
+  "projects": {
+    "VitalSignsApi": {
+      "root": "apps/vital-signs-api",
+      "sourceRoot": "apps/vital-signs-api/src",
+      "projectType": "application",
+      "prefix": "VitalSignsApi",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/builders:node-build",
+          "options": {
+            "outputPath": "dist/apps/vital-signs-api",
+            "main": "apps/vital-signs-api/src/index.ts",
+            "tsConfig": "apps/vital-signs-api/tsconfig.app.json"
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/vital-signs-api/src/environments/environment.ts",
+                  "with": "apps/vital-signs-api/src/environments/environment.prod.ts"
+                }
+              ],
+              "externalDependencies": "none"
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/builders:node-execute",
+          "options": {
+            "buildTarget": "VitalSignsApi:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/vital-signs-api/tsconfig.app.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "VitalSignsLib": {
+      "root": "libs/vital-signs-lib",
+      "sourceRoot": "libs/vital-signs-lib/src",
+      "projectType": "library",
+      "prefix": "libs",
+      "schematics": {},
+      "architect": {}
+    }
+  },
+  "cli": {
+    "warnings": {
+      "typescriptMismatch": false,
+      "versionMismatch": false
+    },
+    "defaultCollection": "@nrwl/schematics",
+    "packageManager": "npm"
+  },
+  "schematics": {
+    "@nrwl/schematics:application": {
+      "style": "scss"
+    },
+    "@nrwl/schematics:library": {
+      "style": "scss"
+    }
+  }
+}
