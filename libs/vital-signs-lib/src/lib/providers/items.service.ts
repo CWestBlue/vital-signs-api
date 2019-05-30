@@ -1,7 +1,7 @@
 import { Injectable } from "@graphql-modules/di";
 // const MongoClient = require('mongodb').MongoClient;
 import mongodb from 'mongodb';
-const uri = "mongodb+srv://cwestAdmin:Conner12!@visionteam-jmozf.gcp.mongodb.net/test?retryWrites=true";
+const uri = 'mongodb+srv://cwestAdmin:Conner12!@visionteam-jmozf.gcp.mongodb.net/test?retryWrites=true&w=majority';
 const client = new mongodb.MongoClient(uri, { useNewUrlParser: true });
 
 @Injectable()
@@ -15,6 +15,7 @@ export class ItemsService {
     public findItems = async () => {
         return new Promise((res, rej) => {
             client.connect(err => {
+                console.log(err);
                 const db = client.db('kingwood').collection('items');
                 db.find().toArray((err2, res2) => {
                     res(res2);
