@@ -11,11 +11,19 @@ type Item {
     growth: String
     _id: String
     stream: String
+    periodOfMeasure: String
+    customUpdates: [CustomUpdate]
     history: [History]
 }
 type History {
-    month: String
+    date: String
     current: String
+}
+
+type CustomUpdate {
+    date: String
+    health: String
+    growth: String
 }
 `;
 
