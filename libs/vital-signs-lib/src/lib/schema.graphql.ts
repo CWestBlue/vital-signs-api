@@ -18,6 +18,8 @@ type Item {
 type History {
     date: String
     current: String
+    growth: String
+    healthy: String
 }
 
 type CustomUpdate {
