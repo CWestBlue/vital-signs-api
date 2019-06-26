@@ -13,6 +13,7 @@ type Item {
     stream: String
     periodOfMeasure: String
     mathType: String
+    historyMathType: String
     customUpdates: [CustomUpdate]
     history: [History]
 }
