@@ -12,6 +12,7 @@ type Item {
     _id: String
     stream: String
     periodOfMeasure: String
+    mathType: String
     customUpdates: [CustomUpdate]
     history: [History]
 }
