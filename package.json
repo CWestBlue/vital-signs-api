@@ -6,7 +6,7 @@
   "scripts": {
     "ng": "ng",
     "start": "node dist/apps/vital-signs-api/main.js",
-    "start-local": "ng serve",
+    "start:local": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "./node_modules/.bin/nx lint && ng lint",
