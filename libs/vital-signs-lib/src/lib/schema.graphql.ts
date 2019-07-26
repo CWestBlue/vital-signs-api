@@ -14,6 +14,7 @@ type Item {
     periodOfMeasure: String
     mathType: String
     historyMathType: String
+    newSetEachMeasure: Boolean
     customUpdates: [CustomUpdate]
     history: [History]
 }
